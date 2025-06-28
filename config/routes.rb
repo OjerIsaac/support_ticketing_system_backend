@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  post "/graphql", to: "graphql#execute"
-  devise_for :users
+  namespace :api do
+    post "/graphql", to: "graphql#execute"
+    devise_for :users, controllers: {
+      sessions: "users/sessions",
+      registrations: "users/registrations"
+    }
+
+    resources :attachments, only: [ :create, :destroy ]
+    get "/export/closed_tickets", to: "exports#closed_tickets"
+  end
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api/graphql"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

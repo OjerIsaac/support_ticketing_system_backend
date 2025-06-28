@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
-    end
+    field :add_attachment, mutation: Mutations::AddAttachment
+    field :create_ticket, mutation: Mutations::CreateTicket
+    field :assign_ticket, mutation: Mutations::AssignTicket
+    field :login_user, mutation: Mutations::LoginUser
+    field :create_comment, mutation: Mutations::CreateComment
+    field :update_ticket_status, mutation: Mutations::UpdateTicketStatus
   end
 end

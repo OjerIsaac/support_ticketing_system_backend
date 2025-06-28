@@ -78,6 +78,9 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    apollo_upload_server (2.1.6)
+      actionpack (>= 6.1.6)
+      graphql (>= 1.8)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
@@ -122,6 +125,8 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.10.5)
+      railties
     graphql (2.5.9)
       base64
       fiber-storage
@@ -137,6 +142,8 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.12.2)
+    jwt (3.1.1)
+      base64
     kamal (2.7.0)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -347,14 +354,17 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
+  apollo_upload_server
   bootsnap
   brakeman
   csv
   debug
   devise
   dotenv-rails
+  graphiql-rails (~> 1.10)
   graphql
   image_processing (~> 1.2)
+  jwt (~> 3.1)
   kamal
   pg (>= 1.4)
   puma (>= 5.0)

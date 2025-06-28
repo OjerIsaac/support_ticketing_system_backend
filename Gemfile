@@ -47,26 +47,32 @@ group :development, :test do
 end
 
 # Authentication
-gem 'devise'
+gem "devise"
 
 # GraphQL
-gem 'graphql'
+gem "graphql"
 
 # File Uploads
-gem 'image_processing', '~> 1.2'
-gem 'active_storage_validations'
+gem "image_processing", "~> 1.2"
+gem "active_storage_validations"
 
 # Background Jobs
-gem 'sidekiq'
+gem "sidekiq"
 
 # Email Scheduling
-gem 'whenever', require: false
+gem "whenever", require: false
 
 # CSV export
-gem 'csv'
+gem "csv"
 
 # Authorization
-gem 'pundit'
+gem "pundit"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: [ :development, :test ]
 
+
+gem "graphiql-rails", "~> 1.10", group: :development
+
+gem "jwt", "~> 3.1"
+
+gem "apollo_upload_server"

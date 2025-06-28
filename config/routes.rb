@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-  namespace :api do
-    post "/graphql", to: "graphql#execute"
-    devise_for :users, controllers: {
-      sessions: "users/sessions",
-      registrations: "users/registrations"
-    }
+  post "/graphql", to: "graphql#execute"
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations"
+  }
 
-    resources :attachments, only: [ :create, :destroy ]
-    get "/export/closed_tickets", to: "exports#closed_tickets"
-  end
+  resources :attachments, only: [ :create, :destroy ]
+  get "/export/closed_tickets", to: "exports#closed_tickets"
 
   if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api/graphql"
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

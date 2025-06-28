@@ -1,5 +1,4 @@
-module Api
-  class ExportsController < ApplicationController
+class ExportsController < ApplicationController
     before_action :authenticate_user!
     before_action :ensure_agent
 
@@ -29,5 +28,4 @@ module Api
       return if current_user.agent?
       render json: { error: "Not authorized" }, status: :forbidden
     end
-  end
 end

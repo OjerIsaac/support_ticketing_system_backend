@@ -1,5 +1,4 @@
-module Api
-  class AttachmentsController < ApplicationController
+class AttachmentsController < ApplicationController
     before_action :authenticate_user!
 
     def create
@@ -32,5 +31,4 @@ module Api
         render json: { error: "Not authorized" }, status: :forbidden
       end
     end
-  end
 end

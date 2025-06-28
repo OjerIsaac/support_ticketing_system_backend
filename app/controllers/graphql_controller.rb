@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-module Api
-  class GraphqlController < ApplicationController
+class GraphqlController < ApplicationController
     protect_from_forgery with: :null_session
 
     def execute
@@ -54,5 +53,4 @@ module Api
 
       render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500 # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
     end
-  end
 end

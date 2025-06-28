@@ -27,6 +27,7 @@ development:
   password: <%= ENV["PG_PASSWORD"] %>
   host: <%= ENV["PG_HOST"] %>
   port: <%= ENV["PG_PORT"] %>
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -90,6 +91,7 @@ production:
     password: <%= ENV["PG_PASSWORD"] %>
     host: <%= ENV["PG_HOST"] %>
     port: <%= ENV["PG_PORT"] %>
+    secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
   cache:
     <<: *primary_production
     database: support_ticketing_system_backend_production_cache

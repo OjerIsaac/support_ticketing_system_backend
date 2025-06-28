@@ -22,10 +22,10 @@ default: &default
 
 development:
   <<: *default
-  database: support_ticketing_system
+  database: <%= ENV["PG_DB"] %>
   username: <%= ENV["PG_USERNAME"] %>
   password: <%= ENV["PG_PASSWORD"] %>
-  host: localhost
+  host: <%= ENV["PG_HOST"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -84,9 +84,10 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: support_ticketing_system_backend_production
-    username: support_ticketing_system_backend
-    password: <%= ENV["SUPPORT_TICKETING_SYSTEM_BACKEND_DATABASE_PASSWORD"] %>
+    database: <%= ENV["PG_DB"] %>
+    username: <%= ENV["PG_USERNAME"] %>
+    password: <%= ENV["PG_PASSWORD"] %>
+    host: <%= ENV["PG_HOST"] %>
   cache:
     <<: *primary_production
     database: support_ticketing_system_backend_production_cache

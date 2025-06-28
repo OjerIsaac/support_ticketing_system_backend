@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", ">= 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -45,3 +45,28 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+# Authentication
+gem 'devise'
+
+# GraphQL
+gem 'graphql'
+
+# File Uploads
+gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations'
+
+# Background Jobs
+gem 'sidekiq'
+
+# Email Scheduling
+gem 'whenever', require: false
+
+# CSV export
+gem 'csv'
+
+# Authorization
+gem 'pundit'
+
+gem 'dotenv-rails', groups: [:development, :test]
+

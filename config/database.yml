@@ -26,6 +26,7 @@ development:
   username: <%= ENV["PG_USERNAME"] %>
   password: <%= ENV["PG_PASSWORD"] %>
   host: <%= ENV["PG_HOST"] %>
+  port: <%= ENV["PG_PORT"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -88,6 +89,7 @@ production:
     username: <%= ENV["PG_USERNAME"] %>
     password: <%= ENV["PG_PASSWORD"] %>
     host: <%= ENV["PG_HOST"] %>
+    port: <%= ENV["PG_PORT"] %>
   cache:
     <<: *primary_production
     database: support_ticketing_system_backend_production_cache

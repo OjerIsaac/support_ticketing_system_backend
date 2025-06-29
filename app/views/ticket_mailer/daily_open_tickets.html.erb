@@ -1,0 +1,20 @@
+<h1>Daily Open Tickets Reminder</h1>
+
+<p>Hello <%= @agent.name %>,</p>
+
+<p>Here are your open tickets as of <%= Date.current.strftime("%B %d, %Y") %>:</p>
+
+<ul>
+  <% @open_tickets.each do |ticket| %>
+    <li>
+      <strong><%= ticket.title %></strong><br>
+      Customer: <%= ticket.customer.email %><br>
+      Created At: <%= ticket.created_at.strftime("%Y-%m-%d") %><br>
+      Status: <%= ticket.status.capitalize %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Please log in to the system to manage them.</p>
+
+<p>Thank you!</p>

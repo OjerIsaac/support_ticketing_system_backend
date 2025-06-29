@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   # Health check endpoint (for Render monitoring)
   get "up" => "rails/health#show", as: :rails_health_check
 
-  root to: redirect("https://isaac.com")
+  root to: redirect("https://support-ticketing-system-frontend.onrender.com/login")
 end

@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def generate_jwt
     payload = {
       sub: id,
-      exp: 24.hours.from_now.to_i,
+      exp: 4.hours.from_now.to_i,
       role: role
     }
     JWT.encode(payload, Rails.application.secret_key_base)

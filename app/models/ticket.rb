@@ -13,10 +13,10 @@ class Ticket < ApplicationRecord
   scope :closed_last_month, -> {
     where(status: :closed, updated_at: 1.month.ago.beginning_of_month..1.month.ago.end_of_month)
   }
-  scope :open_tickets, -> { where(status: [ :open, :in_progress ]) }
+  scope :open_tickets, -> { where(status: [ :open, :pending ]) }
 
   def can_comment?(user)
     return true if user.agent?
-    comments.exists?(user: agent)
+    comments.joins(:user).exists?(users: { role: "agent" })
   end
 end

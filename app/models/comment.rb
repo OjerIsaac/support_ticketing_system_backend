@@ -11,14 +11,14 @@ class Comment < ApplicationRecord
   private
 
   def customer_can_only_comment_if_agent_has_commented
-    if user.customer? && !ticket.comments.exists?(user: ticket.agent)
+    if user.customer? && !ticket.comments.joins(:user).exists?(users: { role: "agent" })
       errors.add(:base, "Customer can only comment after an agent has responded")
     end
   end
 
   def update_ticket_status_if_agent
     if user.agent? && ticket.open?
-      ticket.update(status: :in_progress)
+      ticket.update(status: :pending)
     end
   end
 end

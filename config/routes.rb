@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # API endpoints
   post "/graphql", to: "graphql#execute"
   devise_for :users, controllers: {
     sessions: "users/sessions",
@@ -8,15 +9,13 @@ Rails.application.routes.draw do
   resources :attachments, only: [ :create, :destroy ]
   get "/export/closed_tickets", to: "exports#closed_tickets"
 
+  # Development tools
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check endpoint (for Render monitoring)
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root to: redirect("https://isaac.com")
 end

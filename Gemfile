@@ -76,3 +76,5 @@ gem "graphiql-rails", "~> 1.10", group: :development
 gem "jwt", "~> 3.1"
 
 gem "apollo_upload_server"
+
+gem "rack-cors"

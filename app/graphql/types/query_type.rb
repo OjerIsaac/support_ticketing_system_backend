@@ -24,6 +24,15 @@ module Types
       argument :is_agent, Boolean, required: true
     end
 
+    field :ticket, Types::TicketType, null: true do
+      description "Fetch a single ticket by its ID"
+      argument :id, ID, required: true
+    end
+
+    def ticket(id:)
+      Ticket.find_by(id: id)
+    end
+
     def tickets(page: 1, per_page: 10, is_agent: false)
       scope = Ticket.all
 

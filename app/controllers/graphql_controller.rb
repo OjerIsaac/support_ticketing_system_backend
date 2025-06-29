@@ -28,11 +28,12 @@ class GraphqlController < ApplicationController
       return nil if auth_header.blank?
 
       token = auth_header.split(" ").last
-      decoded = JWT.decode(token, Rails.application.secret_key_base)[0]
+      decoded = JWT.decode(token, Rails.application.secret_key_base, true, algorithm: "HS256")[0]
       User.find_by(id: decoded["sub"])
-    rescue JWT::DecodeError
+    rescue JWT::DecodeError, JWT::ExpiredSignature
       nil
     end
+
 
     def prepare_variables(variables_param)
       case variables_param

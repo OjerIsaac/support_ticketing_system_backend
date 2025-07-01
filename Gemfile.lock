@@ -298,7 +298,7 @@ GEM
       ffi (~> 1.12)
       logger
     securerandom (0.4.1)
-    sidekiq (8.0.4)
+    sidekiq (8.0.5)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
       logger (>= 1.6.2)
